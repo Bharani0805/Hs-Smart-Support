@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* PAGE BASE */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
@@ -32,12 +31,10 @@ body {
     z-index: 1000;
 }
 
-/* Left logo */
 .header-logo img {
     max-height: 85px;
 }
 
-/* Center title */
 .header-title {
     text-align: center;
 }
@@ -54,17 +51,16 @@ body {
     opacity: 0.9;
 }
 
-/* Spacer for alignment */
 .header-spacer {
-    width: 45px;
+    width: 85px;
 }
 
-/* PUSH CONTENT BELOW FIXED HEADER */
+/* PUSH CONTENT BELOW HEADER */
 .page-content {
-    padding-top: 100px;
+    padding-top: 130px;
 }
 
-/* CONTENT SECTIONS */
+/* SECTION */
 .section {
     max-width: 1100px;
     margin: 40px auto;
@@ -86,7 +82,6 @@ body {
     gap: 25px;
 }
 
-/* SERVICE CARD */
 .service-card {
     background: #f5f9fc;
     border-radius: 10px;
@@ -112,6 +107,19 @@ body {
     padding: 0 15px 20px;
 }
 
+/* CONTACT */
+.contact-details {
+    margin-top: 15px;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+}
+
+.contact-details a {
+    color: #0070d2;
+    text-decoration: none;
+}
+
 /* FOOTER */
 .footer {
     background: #000;
@@ -121,7 +129,7 @@ body {
     font-size: 12px;
 }
 
-/* FLOATING SMART SUPPORT */
+/* FLOATING SUPPORT */
 .support-button {
     position: fixed;
     bottom: 25px;
@@ -142,7 +150,7 @@ body {
     width: 45px;
 }
 
-/* Tooltip */
+/* TOOLTIP */
 .support-tooltip {
     position: fixed;
     bottom: 105px;
@@ -160,23 +168,8 @@ body {
     opacity: 1;
 }
 
-.contact-details {
-    margin-top: 15px;
-    font-size: 15px;
-    color: #333;
-    line-height: 1.7;
-}
-
-.contact-details p {
-    margin: 8px 0;
-}
-
 /* MOBILE */
 @media (max-width: 768px) {
-    .header-title h1 {
-        font-size: 22px;
-    }
-
     .section {
         margin: 20px;
         padding: 25px;
@@ -187,32 +180,31 @@ body {
 
 <body>
 
-<!-- FIXED HEADER -->
+<!-- HEADER -->
 <div class="header">
     <div class="header-logo">
         <img src="HCLogo.png" alt="HS Healthcare Logo">
     </div>
 
     <div class="header-title">
-        <h1><b>HS Healthcare</b></h1>
+        <h1>HS Healthcare</h1>
         <p>Compassionate Care • Advanced Technology • Trusted Support</p>
     </div>
 
     <div class="header-spacer"></div>
 </div>
 
-<!-- PAGE CONTENT -->
 <div class="page-content">
 
 <!-- ABOUT -->
 <div class="section">
-    <h2>About us</h2>
+    <h2>About Us</h2>
     <p>
-    HS Healthcare Services is dedicated to caring for you and your family with compassion, respect, and understanding.
-We provide a wide range of healthcare services designed to support your well-being, from routine checkups to specialized treatments.
-Our doctors, nurses, and support teams take the time to listen, explain, and guide you every step of the way.
-Using modern medical technology and comfortable facilities, we aim to make your care experience safe and stress-free.
-At HS Healthcare, your health, comfort, and trust are always our top priority.
+        HS Healthcare Services is dedicated to caring for you and your family with compassion,
+        respect, and understanding. We provide a wide range of healthcare services designed to
+        support your well-being, from routine checkups to specialized treatments.
+        Our doctors, nurses, and support teams guide you every step of the way using modern
+        medical technology in a safe and comfortable environment.
     </p>
 </div>
 
@@ -222,56 +214,54 @@ At HS Healthcare, your health, comfort, and trust are always our top priority.
 
     <div class="services">
         <div class="service-card">
-            <img src="Clinical.jpg" alt="Clinical Care">
+            <img src="Clinical.jpg">
             <h3>Clinical Care</h3>
-            <p>Expert consultations and advanced treatments across specialties.</p>
+            <p>Expert consultations and advanced treatments.</p>
         </div>
 
         <div class="service-card">
-            <img src="emergency.jpg" alt="Emergency Services">
+            <img src="emergency.jpg">
             <h3>Emergency Services</h3>
             <p>24/7 emergency care with rapid response teams.</p>
         </div>
 
         <div class="service-card">
-            <img src="labs.jpeg" alt="Diagnostics & Labs">
+            <img src="labs.jpeg">
             <h3>Diagnostics & Labs</h3>
-            <p>Accurate diagnostics using cutting-edge technology.</p>
+            <p>Accurate diagnostics using modern technology.</p>
         </div>
 
         <div class="service-card">
-            <img src="telemedicine.jpg" alt="Telemedicine">
+            <img src="telemedicine.jpg">
             <h3>Telemedicine</h3>
-            <p>Virtual consultations from the comfort of your home.</p>
+            <p>Virtual consultations from home.</p>
         </div>
 
         <div class="service-card">
-            <img src="insurance.jpg" alt="Insurance Support">
+            <img src="insurance.jpg">
             <h3>Insurance Assistance</h3>
-            <p>End-to-end support for claims and Insurance application queries.</p>
+            <p>Support for insurance and claims.</p>
         </div>
 
         <div class="service-card">
-            <img src="techsupport.jpg" alt="Patient Support">
+            <img src="techsupport.jpg">
             <h3>Technical Support</h3>
-            <p>Dedicated assistance for appointments and services and Billing/payment related issues.</p>
+            <p>Help with billing, payments, and services.</p>
         </div>
     </div>
+</div>
 
-    <div class="section">
+<!-- CONTACT -->
+<div class="section">
     <h2>Contact HS Healthcare</h2>
 
-    <p>
-        We’re here to help you whenever you need us. Feel free to reach out using the details below.
-    </p>
-
     <div class="contact-details">
-        <p><strong>📞 Phone:</strong> +91 7397554442 | +91 7305039287</p>
-        <p><strong>📧 Email:</strong> support@hshealthcare.com</p>
-        <p><strong>📍 Address:</strong>  
-            HS Healthcare,  
-            123 MNMJEC Street,  
-            Thoraipakkam, Chennai – 600097.
+        <p>📞 Phone: <a href="tel:+917397554442">+91 73975 54442</a> | <a href="tel:+917305039287">+91 73050 39287</a></p>
+        <p>📧 Email: <a href="mailto:support@hshealthcare.com">support@hshealthcare.com</a></p>
+        <p>📍 Address:<br>
+            HS Healthcare,<br>
+            123 MNMJEC Street,<br>
+            Thoraipakkam, Chennai – 600097
         </p>
     </div>
 </div>
@@ -283,9 +273,7 @@ At HS Healthcare, your health, comfort, and trust are always our top priority.
     © 2026 HS Healthcare. All rights reserved.
 </div>
 
-</div>
-
-<!-- FLOATING SMART SUPPORT -->
+<!-- SMART SUPPORT -->
 <div class="support-button" onclick="openSupport()">
     <img src="logo.png" alt="Smart Support">
 </div>
@@ -296,7 +284,7 @@ At HS Healthcare, your health, comfort, and trust are always our top priority.
 <script>
 function openSupport() {
     window.location.href =
-        "https://bharani0805.github.io/Hs-Smart-Support/index.html";
+        "https://bharani0805.github.io/Hs-Smart-Support/WebToCaseForm.html";
 }
 </script>
 
