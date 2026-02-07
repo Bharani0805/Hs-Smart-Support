@@ -129,7 +129,7 @@ body {
     font-size: 12px;
 }
 
-/* FLOATING SUPPORT */
+/* FLOATING SMART SUPPORT */
 .support-button {
     position: fixed;
     bottom: 25px;
@@ -150,36 +150,10 @@ body {
     width: 45px;
 }
 
-/* TOOLTIP */
-/*.support-tooltip {
-    position: fixed;
-    bottom: 105px;
-    right: 25px;
-    background: #0070d2;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 13px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.support-button:hover + .support-tooltip {
-    opacity: 1;
-}*/
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .section {
-        margin: 20px;
-        padding: 25px;
-    }
-}
-
-    /* SUPPORT NOTE ABOVE FLOATING BUTTON */
+/* SUPPORT NOTE ABOVE BUTTON */
 .support-note {
     position: fixed;
-    bottom: 110px;   /* sits above the button */
+    bottom: 110px;
     right: 25px;
     background: #ffffff;
     color: #333;
@@ -192,7 +166,7 @@ body {
     z-index: 1001;
 }
 
-/* Small arrow pointing down */
+/* Arrow pointing to button */
 .support-note::after {
     content: "";
     position: absolute;
@@ -203,6 +177,13 @@ body {
     border-color: #ffffff transparent transparent transparent;
 }
 
+/* MOBILE */
+@media (max-width: 768px) {
+    .section {
+        margin: 20px;
+        padding: 25px;
+    }
+}
 </style>
 </head>
 
@@ -284,7 +265,8 @@ body {
     <h2>Contact HS Healthcare</h2>
 
     <div class="contact-details">
-        <p>📞 Phone: <a href="tel:+917397554442">+91 73975 54442</a> | <a href="tel:+917305039287">+91 73050 39287</a></p>
+        <p>📞 Phone: <a href="tel:+917397554442">+91 73975 54442</a> |
+           <a href="tel:+917305039287">+91 73050 39287</a></p>
         <p>📧 Email: <a href="mailto:support@hshealthcare.com">support@hshealthcare.com</a></p>
         <p>📍 Address:<br>
             HS Healthcare,<br>
@@ -301,13 +283,13 @@ body {
     © 2026 HS Healthcare. All rights reserved.
 </div>
 
-    <!-- SUPPORT NOTE ABOVE BUTTON -->
+<!-- SUPPORT NOTE -->
 <div class="support-note">
     For queries or appointment requests,<br>
     please contact <strong>Smart Support</strong>.
 </div>
 
-<!-- SMART SUPPORT -->
+<!-- SMART SUPPORT BUTTON -->
 <div class="support-button" onclick="openSupport()">
     <img src="logo.png" alt="Smart Support">
 </div>
@@ -321,5 +303,3 @@ function openSupport() {
 
 </body>
 </html>
-
-
