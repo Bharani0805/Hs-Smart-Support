@@ -175,6 +175,34 @@ body {
         padding: 25px;
     }
 }
+
+    /* SUPPORT NOTE ABOVE FLOATING BUTTON */
+.support-note {
+    position: fixed;
+    bottom: 110px;   /* sits above the button */
+    right: 25px;
+    background: #ffffff;
+    color: #333;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    max-width: 220px;
+    z-index: 1001;
+}
+
+/* Small arrow pointing down */
+.support-note::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    right: 28px;
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent;
+}
+
 </style>
 </head>
 
@@ -273,6 +301,12 @@ body {
     © 2026 HS Healthcare. All rights reserved.
 </div>
 
+    <!-- SUPPORT NOTE ABOVE BUTTON -->
+<div class="support-note">
+    For queries or appointment requests,<br>
+    please contact <strong>Smart Support</strong>.
+</div>
+
 <!-- SMART SUPPORT -->
 <div class="support-button" onclick="openSupport()">
     <img src="logo.png" alt="Smart Support">
@@ -290,3 +324,4 @@ function openSupport() {
 
 </body>
 </html>
+
