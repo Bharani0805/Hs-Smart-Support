@@ -1,68 +1,161 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Thank You – HS Smart Support</title>
+<title>HS Smart Support – Thank You</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
+html, body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Background */
+body {
     background:
-        linear-gradient(rgba(238,242,247,0.25), rgba(238,242,247,0.25)),
+        linear-gradient(
+            rgba(238, 242, 247, 0.35),
+            rgba(238, 242, 247, 0.35)
+        ),
         url("healthcarebg.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
+/* Header */
 .header {
-    background: #73a4cf;
+    background: linear-gradient(90deg, #0070d2, #00a1e0);
     color: white;
     text-align: center;
-    padding: 25px;
+    padding: 18px 20px;
 }
 
+.logo {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.header h2 {
+    margin: 5px 0;
+}
+
+.header p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Thank You Card */
 .card {
     max-width: 600px;
     margin: 80px auto;
-    background: white;
-    padding: 40px;
+    background: #ffffff;
+    padding: 40px 30px;
     border-radius: 8px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     text-align: center;
 }
 
+.card h1 {
+    color: #0070d2;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: #0070d2;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #005fb2;
+}
+
+/* Footer */
 .footer {
+    background-color: #000000;
+    color: #ffffff;
     text-align: center;
     font-size: 12px;
     padding: 12px 0;
 }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .card {
+        margin: 40px 15px;
+        padding: 30px 20px;
+    }
+}
+
+.action-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Secondary button style */
+.btn.secondary {
+    background: #6c757d;
+}
+
+.btn.secondary:hover {
+    background: #5a6268;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <div class="header">
-    <h2>HS Smart Support</h2>
     <img src="logo.png" class="logo" alt="HS Smart Support">
+    <h2>HS Smart Support</h2>
+    <p>We are here to help you resolve your issues quickly</p>
 </div>
 
+<!-- THANK YOU MESSAGE -->
 <div class="card">
     <h1>Thank You!</h1>
     <p>
-        Your ticket has been successfully submitted.<br>
-        Our support team will contact you shortly.
+        Your support ticket has been successfully submitted.<br><br>
+        Our team will review your request and get back to you as soon as possible.
+        If your issue is marked as <strong>High Priority</strong>,
+        it will be addressed within 24 hours.
     </p>
-    <a href="index.html">Back to Homepage</a>
+
+    <div class="action-buttons">
+        <a href="index.html" class="btn secondary">Back to Homepage</a>
+        <a href="WebToCaseForm.html" class="btn">Raise Another Ticket</a>
+    </div>
 </div>
 
+
+<!-- FOOTER -->
 <div class="footer">
     © 2026 HS Smart Support. All rights reserved.
 </div>
 
 </body>
 </html>
-
-
