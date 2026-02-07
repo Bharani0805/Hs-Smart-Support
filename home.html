@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HS Hospitals – Care You Can Trust</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* PAGE BASE */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        linear-gradient(rgba(238,242,247,0.25), rgba(238,242,247,0.25)),
+        url("healthcarebg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* FIXED HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #aec3d5;
+    color: white;
+    padding: 15px 25px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Left logo */
+.header-logo img {
+    max-height: 85px;
+}
+
+/* Center title */
+.header-title {
+    text-align: center;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.header-title p {
+    margin: 2px 0 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Spacer for alignment */
+.header-spacer {
+    width: 45px;
+}
+
+/* PUSH CONTENT BELOW FIXED HEADER */
+.page-content {
+    padding-top: 100px;
+}
+
+/* CONTENT SECTIONS */
+.section {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.section h2 {
+    color: #0070d2;
+    margin-bottom: 20px;
+}
+
+/* SERVICES GRID */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* SERVICE CARD */
+.service-card {
+    background: #f5f9fc;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.service-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    margin: 15px 10px 5px;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #555;
+    padding: 0 15px 20px;
+}
+
+/* FOOTER */
+.footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+}
+
+/* FLOATING SMART SUPPORT */
+.support-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.support-button img {
+    width: 45px;
+}
+
+/* Tooltip */
+.support-tooltip {
+    position: fixed;
+    bottom: 105px;
+    right: 25px;
+    background: #0070d2;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.support-button:hover + .support-tooltip {
+    opacity: 1;
+}
+
+.contact-details {
+    margin-top: 15px;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+}
+
+.contact-details p {
+    margin: 8px 0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .header-title h1 {
+        font-size: 22px;
+    }
+
+    .section {
+        margin: 20px;
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIXED HEADER -->
+<div class="header">
+    <div class="header-logo">
+        <img src="HCLogo.png" alt="HS Healthcare Logo">
+    </div>
+
+    <div class="header-title">
+        <h1><b>HS Healthcare</b></h1>
+        <p>Compassionate Care • Advanced Technology • Trusted Support</p>
+    </div>
+
+    <div class="header-spacer"></div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="page-content">
+
+<!-- ABOUT -->
+<div class="section">
+    <h2>About us</h2>
+    <p>
+    HS Healthcare Services is dedicated to caring for you and your family with compassion, respect, and understanding.
+We provide a wide range of healthcare services designed to support your well-being, from routine checkups to specialized treatments.
+Our doctors, nurses, and support teams take the time to listen, explain, and guide you every step of the way.
+Using modern medical technology and comfortable facilities, we aim to make your care experience safe and stress-free.
+At HS Healthcare, your health, comfort, and trust are always our top priority.
+    </p>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+    <h2>Our Healthcare Services</h2>
+
+    <div class="services">
+        <div class="service-card">
+            <img src="Clinical.jpg" alt="Clinical Care">
+            <h3>Clinical Care</h3>
+            <p>Expert consultations and advanced treatments across specialties.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="emergency.jpg" alt="Emergency Services">
+            <h3>Emergency Services</h3>
+            <p>24/7 emergency care with rapid response teams.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="labs.jpeg" alt="Diagnostics & Labs">
+            <h3>Diagnostics & Labs</h3>
+            <p>Accurate diagnostics using cutting-edge technology.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="telemedicine.jpg" alt="Telemedicine">
+            <h3>Telemedicine</h3>
+            <p>Virtual consultations from the comfort of your home.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="insurance.jpg" alt="Insurance Support">
+            <h3>Insurance Assistance</h3>
+            <p>End-to-end support for claims and Insurance application queries.</p>
+        </div>
+
+        <div class="service-card">
+            <img src="techsupport.jpg" alt="Patient Support">
+            <h3>Technical Support</h3>
+            <p>Dedicated assistance for appointments and services and Billing/payment related issues.</p>
+        </div>
+    </div>
+
+    <div class="section">
+    <h2>Contact HS Healthcare</h2>
+
+    <p>
+        We’re here to help you whenever you need us. Feel free to reach out using the details below.
+    </p>
+
+    <div class="contact-details">
+        <p><strong>📞 Phone:</strong> +91 7397554442 | +91 7305039287</p>
+        <p><strong>📧 Email:</strong> support@hshealthcare.com</p>
+        <p><strong>📍 Address:</strong>  
+            HS Healthcare,  
+            123 MNMJEC Street,  
+            Thoraipakkam, Chennai – 600097.
+        </p>
+    </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 HS Healthcare. All rights reserved.
+</div>
+
+</div>
+
+<!-- FLOATING SMART SUPPORT -->
+<div class="support-button" onclick="openSupport()">
+    <img src="logo.png" alt="Smart Support">
+</div>
+<div class="support-tooltip">
+    Need Help? Contact Smart Support
+</div>
+
+<script>
+function openSupport() {
+    window.location.href =
+        "https://bharani0805.github.io/Hs-Smart-Support/index.html";
+}
+</script>
+
+</body>
+</html>
