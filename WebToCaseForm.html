@@ -14,7 +14,8 @@ html, body {
 /* Background */
 body {
     background:
-        linear-gradient(rgba(238,242,247,0.25), rgba(238,242,247,0.25)),
+        linear-gradient(rgba(238,242,247,0.25),
+                        rgba(238,242,247,0.25)),
         url("healthcarebg.jpg");
     background-size: cover;
     background-position: center;
@@ -35,16 +36,15 @@ body {
     margin: 0 auto 10px;
 }
 
-/* Alert bar */
+/* Alert */
 .marquee {
     background: #fff3cd;
     color: #856404;
     padding: 10px;
     text-align: center;
-    font-size: 14px;
 }
 
-/* Form card */
+/* Form */
 .container {
     max-width: 650px;
     margin: 40px auto;
@@ -52,9 +52,10 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
-/* Fields */
 label {
     display: block;
     margin-bottom: 6px;
@@ -96,38 +97,42 @@ input[type="submit"]:hover {
     font-size: 12px;
     padding: 12px 0;
 }
+
+@media (max-width: 768px) {
+    .container {
+        max-height: none;
+        overflow: visible;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div class="header">
     <img src="logo.png" class="logo" alt="HS Smart Support">
     <h2>HS Smart Support</h2>
-    <p>We are here to assist you</p>
+    <p>We are here to help you resolve your issues quickly</p>
 </div>
 
-<!-- ALERT -->
 <div class="marquee">
-    ⚠️ For issues, please provide detailed information for faster resolution. High priority cases are addressed within 24 hours.
+    ⚠️ Please provide detailed information for faster resolution.
 </div>
 
-<!-- FORM -->
 <div class="container">
-
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase"
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dg5000002rLI5"
       method="POST">
 
-<!-- REQUIRED SALESFORCE FIELDS -->
 <input type="hidden" name="orgid" value="00Dg5000002rLI5">
-<input type="hidden" name="origin" value="Web">
+<input type="hidden" name="external" value="1">
 <input type="hidden" name="retURL"
        value="https://bharani0805.github.io/Hs-Smart-Support/thankyou.html">
-<input type="hidden" name="external" value="1">
 
 <label>Subject</label>
-<input type="text" name="subject" required>
+<input type="text" name="subject">
+
+<label>Email</label>
+<input type="email" name="email">
 
 <label>Type</label>
 <select id="type" name="type">
@@ -139,7 +144,7 @@ input[type="submit"]:hover {
     <option value="Insurance">Insurance</option>
 </select>
 
-<!-- Sub-Type (Hidden by default) -->
+<!-- Sub-Type -->
 <div id="subTypeContainer" style="display:none;">
     <label>Sub-Type</label>
     <select id="subType" name="00Ng5000007lmzd">
@@ -152,14 +157,21 @@ input[type="submit"]:hover {
     </select>
 </div>
 
+<!-- To Visit -->
+<div id="visitContainer" style="display:none;">
+    <label>To Visit?</label>
+    <select id="visit" name="00Ng5000009JsEQ">
+        <option value="">--None--</option>
+        <option value="Cardiologist (Heart)">Cardiologist (Heart)</option>
+        <option value="General Physician">General Physician</option>
+        <option value="Orthopedic (Bones/ Muscles)">Orthopedic (Bones/ Muscles)</option>
+        <option value="Pediatricians (Baby)">Pediatricians (Baby)</option>
+        <option value="Pulmonologist (Lungs)">Pulmonologist (Lungs)</option>
+    </select>
+</div>
+
 <label>Description</label>
-<textarea name="description" required></textarea>
-
-<label>Email</label>
-<input type="email" name="email" required>
-
-<label>Phone</label>
-<input type="text" name="phone">
+<textarea name="description"></textarea>
 
 <label>Priority</label>
 <select name="priority">
@@ -172,29 +184,43 @@ input[type="submit"]:hover {
 <input type="submit" value="Submit Ticket">
 
 </form>
-</div>
 
-<!-- FOOTER -->
 <div class="footer">
     © 2026 HS Smart Support. All rights reserved.
 </div>
+</div>
 
-<!-- SCRIPT -->
 <script>
 const typeField = document.getElementById("type");
 const subTypeContainer = document.getElementById("subTypeContainer");
 const subTypeField = document.getElementById("subType");
 
-typeField.addEventListener("change", function () {
-    if (this.value === "Clinical") {
+const visitContainer = document.getElementById("visitContainer");
+const visitField = document.getElementById("visit");
+
+/* Type → Sub-Type */
+typeField.addEventListener("change", () => {
+    if (typeField.value === "Clinical") {
         subTypeContainer.style.display = "block";
     } else {
         subTypeContainer.style.display = "none";
         subTypeField.value = "";
+        visitContainer.style.display = "none";
+        visitField.value = "";
+    }
+});
+
+/* Sub-Type → To Visit */
+subTypeField.addEventListener("change", () => {
+    const showVisitFor = ["Emergency", "Telemedicine", "Consultation"];
+    if (showVisitFor.includes(subTypeField.value)) {
+        visitContainer.style.display = "block";
+    } else {
+        visitContainer.style.display = "none";
+        visitField.value = "";
     }
 });
 </script>
 
 </body>
 </html>
-
