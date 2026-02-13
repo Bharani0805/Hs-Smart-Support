@@ -119,14 +119,14 @@ input[type="submit"]:hover {
 <form action="https://webto.salesforce.com/servlet/servlet.WebToCase"
       method="POST">
 
-<!-- Required Hidden Fields -->
+<!-- Salesforce Required Hidden Fields -->
 <input type="hidden" name="orgid" value="00Dg5000002rLI5">
 <input type="hidden" name="origin" value="Web">
 <input type="hidden" name="external" value="1">
 <input type="hidden" name="retURL"
        value="https://bharani0805.github.io/Hs-Smart-Support/thankyou.html">
 
-<!-- Optional Debug (Enable if needed) -->
+<!-- Optional Debug Mode -->
 <!--
 <input type="hidden" name="debug" value="1">
 <input type="hidden" name="debugEmail" value="your-email@gmail.com">
@@ -218,7 +218,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Sub-Type → To Visit
     subTypeField.addEventListener("change", function () {
-        const showVisitFor = ["Emergency", "Telemedicine", "Consultation"];
+        const showVisitFor = [
+            "Emergency",
+            "In Clinic Consultation",
+            "Tele Consultation"
+        ];
 
         if (showVisitFor.includes(this.value)) {
             visitContainer.style.display = "block";
@@ -233,4 +237,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
