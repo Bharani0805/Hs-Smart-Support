@@ -138,9 +138,9 @@ input[type="submit"]:hover {
 <select id="type" name="type">
     <option value="">--None--</option>
     <option value="Billing">Billing</option>
-    <option value="Service Quality">Service Quality</option>
+    <option value="Service Feedback">Service Feedback</option>
     <option value="Technical">Technical</option>
-    <option value="Clinical">Clinical</option>
+    <option value="Appointment">Appointment</option>
     <option value="Insurance">Insurance</option>
 </select>
 
@@ -150,7 +150,6 @@ input[type="submit"]:hover {
     <select id="subType" name="00Ng5000007lmzd">
         <option value="">--None--</option>
         <option value="Consultation">Consultation</option>
-        <option value="Follow-up">Follow-up</option>
         <option value="Emergency">Emergency</option>
         <option value="Telemedicine">Telemedicine</option>
         <option value="Lab Test">Lab Test</option>
@@ -200,7 +199,7 @@ const visitField = document.getElementById("visit");
 
 /* Type → Sub-Type */
 typeField.addEventListener("change", () => {
-    if (typeField.value === "Clinical") {
+    if (typeField.value === "Appointment") {
         subTypeContainer.style.display = "block";
     } else {
         subTypeContainer.style.display = "none";
@@ -224,3 +223,4 @@ subTypeField.addEventListener("change", () => {
 
 </body>
 </html>
+
