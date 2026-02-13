@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 <title>HS Smart Support – Raise a Ticket</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,7 +12,6 @@ html, body {
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Background */
 body {
     background:
         linear-gradient(rgba(238,242,247,0.25),
@@ -22,7 +22,6 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Header */
 .header {
     background: #73a4cf;
     color: white;
@@ -36,7 +35,6 @@ body {
     margin: 0 auto 10px;
 }
 
-/* Alert */
 .marquee {
     background: #fff3cd;
     color: #856404;
@@ -44,7 +42,6 @@ body {
     text-align: center;
 }
 
-/* Form */
 .container {
     max-width: 650px;
     margin: 40px auto;
@@ -52,7 +49,7 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    max-height: 70vh;
+    max-height: 75vh;
     overflow-y: auto;
 }
 
@@ -75,7 +72,6 @@ textarea {
     min-height: 120px;
 }
 
-/* Submit */
 input[type="submit"] {
     background: #0070d2;
     color: white;
@@ -91,7 +87,6 @@ input[type="submit"]:hover {
     background: #005fb2;
 }
 
-/* Footer */
 .footer {
     text-align: center;
     font-size: 12px;
@@ -120,22 +115,31 @@ input[type="submit"]:hover {
 </div>
 
 <div class="container">
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dg5000002rLI5"
+
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase"
       method="POST">
 
+<!-- Required Hidden Fields -->
 <input type="hidden" name="orgid" value="00Dg5000002rLI5">
+<input type="hidden" name="origin" value="Web">
 <input type="hidden" name="external" value="1">
 <input type="hidden" name="retURL"
        value="https://bharani0805.github.io/Hs-Smart-Support/thankyou.html">
 
+<!-- Optional Debug (Enable if needed) -->
+<!--
+<input type="hidden" name="debug" value="1">
+<input type="hidden" name="debugEmail" value="your-email@gmail.com">
+-->
+
 <label>Subject</label>
-<input type="text" name="subject">
+<input type="text" name="subject" required>
 
 <label>Email</label>
-<input type="email" name="email">
+<input type="email" name="email" required>
 
 <label>Type</label>
-<select id="type" name="type">
+<select id="type" name="type" required>
     <option value="">--None--</option>
     <option value="Billing">Billing</option>
     <option value="Service Feedback">Service Feedback</option>
@@ -170,7 +174,7 @@ input[type="submit"]:hover {
 </div>
 
 <label>Description</label>
-<textarea name="description"></textarea>
+<textarea name="description" required></textarea>
 
 <label>Priority</label>
 <select name="priority">
@@ -187,40 +191,45 @@ input[type="submit"]:hover {
 <div class="footer">
     © 2026 HS Smart Support. All rights reserved.
 </div>
+
 </div>
 
 <script>
-const typeField = document.getElementById("type");
-const subTypeContainer = document.getElementById("subTypeContainer");
-const subTypeField = document.getElementById("subType");
+document.addEventListener("DOMContentLoaded", function () {
 
-const visitContainer = document.getElementById("visitContainer");
-const visitField = document.getElementById("visit");
+    const typeField = document.getElementById("type");
+    const subTypeContainer = document.getElementById("subTypeContainer");
+    const subTypeField = document.getElementById("subType");
 
-/* Type → Sub-Type */
-typeField.addEventListener("change", () => {
-    if (typeField.value === "Appointment") {
-        subTypeContainer.style.display = "block";
-    } else {
-        subTypeContainer.style.display = "none";
-        subTypeField.value = "";
-        visitContainer.style.display = "none";
-        visitField.value = "";
-    }
-});
+    const visitContainer = document.getElementById("visitContainer");
+    const visitField = document.getElementById("visit");
 
-/* Sub-Type → To Visit */
-subTypeField.addEventListener("change", () => {
-    const showVisitFor = ["Emergency", "Telemedicine", "Consultation"];
-    if (showVisitFor.includes(subTypeField.value)) {
-        visitContainer.style.display = "block";
-    } else {
-        visitContainer.style.display = "none";
-        visitField.value = "";
-    }
+    // Type → Sub-Type
+    typeField.addEventListener("change", function () {
+        if (this.value === "Appointment") {
+            subTypeContainer.style.display = "block";
+        } else {
+            subTypeContainer.style.display = "none";
+            subTypeField.value = "";
+            visitContainer.style.display = "none";
+            visitField.value = "";
+        }
+    });
+
+    // Sub-Type → To Visit
+    subTypeField.addEventListener("change", function () {
+        const showVisitFor = ["Emergency", "Telemedicine", "Consultation"];
+
+        if (showVisitFor.includes(this.value)) {
+            visitContainer.style.display = "block";
+        } else {
+            visitContainer.style.display = "none";
+            visitField.value = "";
+        }
+    });
+
 });
 </script>
 
 </body>
 </html>
-
