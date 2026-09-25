@@ -60,16 +60,20 @@ label {
     font-size: 14px;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 18px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 textarea {
     min-height: 120px;
+    resize: vertical;
 }
 
 input[type="submit"] {
@@ -93,10 +97,15 @@ input[type="submit"]:hover {
     padding: 12px 0;
 }
 
+.hidden-field {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .container {
         max-height: none;
         overflow: visible;
+        margin: 20px;
     }
 }
 </style>
@@ -116,47 +125,131 @@ input[type="submit"]:hover {
 
 <div class="container">
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dak00001Gl8VH" method="POST">
+<form
+    action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dak00001Gl8VH"
+    method="POST"
+>
 
-<input type=hidden name="orgid" value="00Dak00001Gl8VH">
-<input type=hidden name="retURL" value="https://bharani0805.github.io/Hs-Smart-Support/thankyou.html">
+    <input type="hidden" name="orgid" value="00Dak00001Gl8VH">
 
-<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+    <input
+        type="hidden"
+        name="retURL"
+        value="https://bharani0805.github.io/Hs-Smart-Support/thankyou.html"
+    >
 
-<label for="type">Type</label><select  id="type" name="type"><option value="">--None--</option><option value="Electrical">Electrical</option>
-<option value="Electronic">Electronic</option>
-<option value="Structural">Structural</option>
-<option value="Other">Other</option>
-<option value="Billing">Billing</option>
-<option value="Service Feedback">Service Feedback</option>
-<option value="Technical">Technical</option>
-<option value="Appointment">Appointment</option>
-<option value="Insurance">Insurance</option>
-</select><br>
+    <!-- Subject -->
+    <label for="subject">Subject</label>
+    <input
+        id="subject"
+        maxlength="80"
+        name="subject"
+        type="text"
+    >
 
-Sub -Type:<select  id="00Nak00005Bs9jl" name="00Nak00005Bs9jl" title="Sub -Type"><option value="">--None--</option><option value="In Clinic Consultation">In Clinic Consultation</option>
-<option value="Emergency">Emergency</option>
-<option value="Tele Consultation">Tele Consultation</option>
-<option value="Lab Test">Lab Test</option>
-</select><br>
+    <!-- Type -->
+    <label for="type">Type</label>
+    <select id="type" name="type">
+        <option value="">--None--</option>
+        <option value="Electrical">Electrical</option>
+        <option value="Electronic">Electronic</option>
+        <option value="Structural">Structural</option>
+        <option value="Other">Other</option>
+        <option value="Billing">Billing</option>
+        <option value="Service Feedback">Service Feedback</option>
+        <option value="Technical">Technical</option>
+        <option value="Appointment">Appointment</option>
+        <option value="Insurance">Insurance</option>
+    </select>
 
-To Visit?:<select  id="00Nak00005Csk4P" name="00Nak00005Csk4P" title="To Visit?"><option value="">--None--</option><option value="Cardiologist (Heart)">Cardiologist (Heart)</option>
-<option value="GeneralPhysician">General Physician</option>
-<option value="Orthopedic (Bones/ Muscles)">Orthopedic (Bones/ Muscles)</option>
-<option value="Pediatrician (Baby)">Pediatrician (Baby)</option>
-<option value="Pulmonologist (Lungs)">Pulmonologist (Lungs)</option>
-</select><br>
+    <!-- Sub-Type -->
+    <div id="subTypeContainer" class="hidden-field">
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+        <label for="subType">Sub-Type</label>
 
-<label for="description">Description</label><textarea name="description"></textarea><br>
+        <select
+            id="subType"
+            name="00Nak00005Bs9jl"
+            title="Sub-Type"
+        >
+            <option value="">--None--</option>
+            <option value="In Clinic Consultation">
+                In Clinic Consultation
+            </option>
+            <option value="Emergency">
+                Emergency
+            </option>
+            <option value="Tele Consultation">
+                Tele Consultation
+            </option>
+            <option value="Lab Test">
+                Lab Test
+            </option>
+        </select>
 
-<label for="priority">Priority</label><select  id="priority" name="priority"><option value="">--None--</option><option value="High">High</option>
-<option value="Medium">Medium</option>
-<option value="Low">Low</option>
-</select><br>
+    </div>
 
-<input type="submit" name="submit">
+    <!-- To Visit -->
+    <div id="visitContainer" class="hidden-field">
+
+        <label for="visit">To Visit?</label>
+
+        <select
+            id="visit"
+            name="00Nak00005Csk4P"
+            title="To Visit?"
+        >
+            <option value="">--None--</option>
+            <option value="Cardiologist (Heart)">
+                Cardiologist (Heart)
+            </option>
+            <option value="GeneralPhysician">
+                General Physician
+            </option>
+            <option value="Orthopedic (Bones/ Muscles)">
+                Orthopedic (Bones/ Muscles)
+            </option>
+            <option value="Pediatrician (Baby)">
+                Pediatrician (Baby)
+            </option>
+            <option value="Pulmonologist (Lungs)">
+                Pulmonologist (Lungs)
+            </option>
+        </select>
+
+    </div>
+
+    <!-- Email -->
+    <label for="email">Email</label>
+    <input
+        id="email"
+        maxlength="80"
+        name="email"
+        type="email"
+    >
+
+    <!-- Description -->
+    <label for="description">Description</label>
+    <textarea
+        id="description"
+        name="description"
+    ></textarea>
+
+    <!-- Priority -->
+    <label for="priority">Priority</label>
+    <select id="priority" name="priority">
+        <option value="">--None--</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+    </select>
+
+    <!-- Submit -->
+    <input
+        type="submit"
+        name="submit"
+        value="Submit Ticket"
+    >
 
 </form>
 
@@ -170,36 +263,72 @@ To Visit?:<select  id="00Nak00005Csk4P" name="00Nak00005Csk4P" title="To Visit?"
 document.addEventListener("DOMContentLoaded", function () {
 
     const typeField = document.getElementById("type");
-    const subTypeContainer = document.getElementById("subTypeContainer");
-    const subTypeField = document.getElementById("subType");
 
-    const visitContainer = document.getElementById("visitContainer");
-    const visitField = document.getElementById("visit");
+    const subTypeContainer =
+        document.getElementById("subTypeContainer");
 
+    const subTypeField =
+        document.getElementById("subType");
+
+    const visitContainer =
+        document.getElementById("visitContainer");
+
+    const visitField =
+        document.getElementById("visit");
+
+
+    // --------------------------------------------------
     // Type → Sub-Type
+    // --------------------------------------------------
+
     typeField.addEventListener("change", function () {
+
         if (this.value === "Appointment") {
+
+            // Show Sub-Type
             subTypeContainer.style.display = "block";
+
         } else {
+
+            // Hide Sub-Type
             subTypeContainer.style.display = "none";
+
+            // Clear Sub-Type
             subTypeField.value = "";
+
+            // Hide To Visit
             visitContainer.style.display = "none";
+
+            // Clear To Visit
             visitField.value = "";
         }
     });
 
+
+    // --------------------------------------------------
     // Sub-Type → To Visit
+    // --------------------------------------------------
+
     subTypeField.addEventListener("change", function () {
+
         const showVisitFor = [
-            "Emergency",
             "In Clinic Consultation",
+            "Emergency",
             "Tele Consultation"
         ];
 
         if (showVisitFor.includes(this.value)) {
+
+            // Show To Visit
             visitContainer.style.display = "block";
+
         } else {
+
+            // Lab Test or blank
+            // Hide To Visit
             visitContainer.style.display = "none";
+
+            // Clear To Visit
             visitField.value = "";
         }
     });
@@ -209,4 +338,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
