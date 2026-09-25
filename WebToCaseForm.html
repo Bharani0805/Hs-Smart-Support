@@ -116,75 +116,47 @@ input[type="submit"]:hover {
 
 <div class="container">
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase"
-      method="POST">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dak00001Gl8VH" method="POST">
 
-<!-- Salesforce Required Hidden Fields -->
-<input type="hidden" name="orgid" value="00Dg5000002rLI5">
-<input type="hidden" name="origin" value="Web">
-<input type="hidden" name="external" value="1">
-<input type="hidden" name="retURL"
-       value="https://bharani0805.github.io/Hs-Smart-Support/thankyou.html">
+<input type=hidden name="orgid" value="00Dak00001Gl8VH">
+<input type=hidden name="retURL" value="https://bharani0805.github.io/Hs-Smart-Support/thankyou.html">
 
-<!-- Optional Debug Mode -->
-<!--
-<input type="hidden" name="debug" value="1">
-<input type="hidden" name="debugEmail" value="your-email@gmail.com">
--->
+<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
 
-<label>Subject</label>
-<input type="text" name="subject" required>
+<label for="type">Type</label><select  id="type" name="type"><option value="">--None--</option><option value="Electrical">Electrical</option>
+<option value="Electronic">Electronic</option>
+<option value="Structural">Structural</option>
+<option value="Other">Other</option>
+<option value="Billing">Billing</option>
+<option value="Service Feedback">Service Feedback</option>
+<option value="Technical">Technical</option>
+<option value="Appointment">Appointment</option>
+<option value="Insurance">Insurance</option>
+</select><br>
 
-<label>Email</label>
-<input type="email" name="email" required>
+Sub -Type:<select  id="00Nak00005Bs9jl" name="00Nak00005Bs9jl" title="Sub -Type"><option value="">--None--</option><option value="In Clinic Consultation">In Clinic Consultation</option>
+<option value="Emergency">Emergency</option>
+<option value="Tele Consultation">Tele Consultation</option>
+<option value="Lab Test">Lab Test</option>
+</select><br>
 
-<label>Type</label>
-<select id="type" name="type" required>
-    <option value="">--None--</option>
-    <option value="Billing">Billing</option>
-    <option value="Service Feedback">Service Feedback</option>
-    <option value="Technical">Technical</option>
-    <option value="Appointment">Appointment</option>
-    <option value="Insurance">Insurance</option>
-</select>
+To Visit?:<select  id="00Nak00005Csk4P" name="00Nak00005Csk4P" title="To Visit?"><option value="">--None--</option><option value="Cardiologist (Heart)">Cardiologist (Heart)</option>
+<option value="General Physician">General Physician</option>
+<option value="Orthopedic (Bones/ Muscles)">Orthopedic (Bones/ Muscles)</option>
+<option value="Pediatrician (Baby)">Pediatrician (Baby)</option>
+<option value="Pulmonologist (Lungs)">Pulmonologist (Lungs)</option>
+</select><br>
 
-<!-- Sub-Type -->
-<div id="subTypeContainer" style="display:none;">
-    <label>Sub-Type</label>
-    <select id="subType" name="00Ng5000007lmzd">
-        <option value="">--None--</option>
-        <option value="In Clinic Consultation">In Clinic Consultation</option>
-        <option value="Emergency">Emergency</option>
-        <option value="Tele Consultation">Tele Consultation</option>
-        <option value="Lab Test">Lab Test</option>
-    </select>
-</div>
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-<!-- To Visit -->
-<div id="visitContainer" style="display:none;">
-    <label>To Visit?</label>
-    <select id="visit" name="00Ng5000009JsEQ">
-        <option value="">--None--</option>
-        <option value="Cardiologist (Heart)">Cardiologist (Heart)</option>
-        <option value="General Physician">General Physician</option>
-        <option value="Orthopedic (Bones/ Muscles)">Orthopedic (Bones/ Muscles)</option>
-        <option value="Pediatricians (Baby)">Pediatricians (Baby)</option>
-        <option value="Pulmonologist (Lungs)">Pulmonologist (Lungs)</option>
-    </select>
-</div>
+<label for="description">Description</label><textarea name="description"></textarea><br>
 
-<label>Description</label>
-<textarea name="description" required></textarea>
+<label for="priority">Priority</label><select  id="priority" name="priority"><option value="">--None--</option><option value="High">High</option>
+<option value="Medium">Medium</option>
+<option value="Low">Low</option>
+</select><br>
 
-<label>Priority</label>
-<select name="priority">
-    <option value="">--None--</option>
-    <option value="High">High</option>
-    <option value="Medium">Medium</option>
-    <option value="Low">Low</option>
-</select>
-
-<input type="submit" value="Submit Ticket">
+<input type="submit" name="submit">
 
 </form>
 
